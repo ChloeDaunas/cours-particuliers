@@ -1,0 +1,18 @@
+# Dépendances (très lourd, on ne les versionne jamais)
+node_modules/
+
+# Variables d'environnement (contient tes secrets/mots de passe)
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS spécifiques (Mac/Windows)
+.DS_Store
+Thumbs.db
+
+# Build (quand on fera le frontend)
+dist/
+build/
