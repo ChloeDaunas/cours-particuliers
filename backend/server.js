@@ -1,9 +1,17 @@
+
 import express from 'express'; //importation d'express
 import mongoose from 'mongoose'; // Importation de mongoose pour la connexion à MongoDB
 import dotenv from 'dotenv';// Charge les variables du fichier .env
 dotenv.config();
 
 const app=express();  //initialisation de l'application
+app.use(express.json()); // Middleware pour parser le JSON
+import eleveRoutes from './routes/eleveRoutes.js';
+app.use('/api/eleve', eleveRoutes); // Utilisation des routes pour les élèves
+import courRoutes from './routes/courRoutes.js';
+app.use('/api/cour', courRoutes); // Utilisation des routes pour les cours
+
+
 const PORT = process.env.PORT //configuration du port
 
 

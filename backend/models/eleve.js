@@ -33,4 +33,4 @@ const eleveSchema = new mongoose.Schema({
 
 }, { timestamps: true }); // Cela ajoutera automatiquement 'createdAt' et 'updatedAt'
 
-module.exports = mongoose.model('eleve', eleveSchema);
+export default mongoose.model('eleve', eleveSchema);

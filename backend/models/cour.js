@@ -1,8 +1,8 @@
-import mangoose from 'mongoose';
+import mongoose from 'mongoose';
 
-const courSchema = new mangoose.Schema({
+const courSchema = new mongoose.Schema({
     eleve: {
-        type: mangoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'eleve',
         required: true
     },
@@ -27,4 +27,4 @@ const courSchema = new mangoose.Schema({
     }
 }, {timestamps: true}); // Cela ajoutera automatiquement 'createdAt' et 'updatedAt'
 
-module.exports = mongoose.model('cour', courSchema);
+export default mongoose.model('cour', courSchema);

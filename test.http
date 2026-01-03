@@ -1,0 +1,14 @@
+POST http://localhost:5000/api/eleve/add
+Content-Type: application/json
+
+{
+    
+
+    "prenom":"Jean",
+    "nom": "Dupont",
+    "classe":"Terminale",
+    "numeroTelephone": "0601020304",
+    "email": "test@gmail.com",
+    "telParent": "0601020304"
+
+}
