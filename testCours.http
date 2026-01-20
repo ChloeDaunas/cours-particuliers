@@ -1,0 +1,13 @@
+POST http://localhost:5000/api/cour/add
+Content-Type: application/json
+
+{
+    "eleve": "6958fd832323270a3a77c822",
+    "heureDebut": "2024-06-01T15:00:00",
+    "duree": 60,
+    "prix": 17,
+    "effectue": false,
+    "paye": false
+}
+
+GET http://localhost:5000/api/cour/all
