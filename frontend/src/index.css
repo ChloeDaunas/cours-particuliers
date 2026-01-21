@@ -1,0 +1,22 @@
+/* On définit une police moderne et on enlève les marges par défaut */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light; /* Force le mode clair pour l'instant */
+  background-color: #ffffff;
+  color: #213547;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: flex-start; /* Aligne tout en haut */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%; /* Important pour que ton App occupe tout l'écran */
+}

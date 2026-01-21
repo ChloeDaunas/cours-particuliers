@@ -1,0 +1,62 @@
+/* Style pour tes boutons */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #646cff; /* Un beau violet/bleu */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+button:hover {
+  background-color: #535bf2; /* Plus foncé au survol */
+}
+
+/* Style pour tes cartes de statistiques */
+.stat-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  min-width: 200px;
+}
+
+/* Style pour les inputs (champs de saisie) */
+input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box; /* Évite que l'input dépasse de son cadre */
+
+  .eleve-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.eleve-card:hover {
+  transform: translateY(-5px); /* Petit effet de soulèvement au survol */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.eleve-card p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.eleve-card strong {
+  color: #333;
+}
+}

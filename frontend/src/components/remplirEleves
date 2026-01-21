@@ -1,0 +1,85 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function remplirEleves({ isOpen, onClose, onStudentAdded }) {
+  const [form, setForm] = useState({
+    prenom: '',
+    nom: '',
+    classe: '',
+    numeroTelephone: '',
+    email: '',
+    telParent: ''
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post('http://localhost:5000/api/students/add', form);
+      onStudentAdded(); // Appelle la fonction pour rafraîchir la liste
+      onClose();        // Ferme le panneau
+      setForm({         // Réinitialise le formulaire
+        prenom: '', nom: '', classe: '',
+        numeroTelephone: '', email: '', telParent: ''
+      });
+    } catch (error) {
+      console.error("Erreur lors de l'ajout de l'élève", error);
+    }
+  };
+
+  // Le style pour le panneau latéral
+  const drawerStyle = {
+    position: 'fixed',
+    top: 0,
+    right: isOpen ? 0 : '-400px', // Visible si isOpen est true
+    width: '350px',
+    height: '100%',
+    backgroundColor: '#f8f9fa',
+    boxShadow: '-2px 0 8px rgba(0,0,0,0.1)',
+    transition: 'right 0.3s ease-in-out',
+    zIndex: 1001, // Au-dessus de tout
+    padding: '20px',
+    overflowY: 'auto'
+  };
+
+  // Le style pour l'overlay (fond semi-transparent derrière le panneau)
+  const overlayStyle = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    zIndex: 1000,
+    display: isOpen ? 'block' : 'none'
+  };
+
+  if (!isOpen && right === '-400px') return null; // Ne rend rien si fermé et caché
+
+  return (
+    <>
+      <div style={overlayStyle} onClick={onClose}></div> {/* L'overlay */}
+      <div style={drawerStyle}>
+        <h3 style={{ marginBottom: '20px', color: '#333' }}>Ajouter un élève</h3>
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="prenom" placeholder="Prénom" value={form.prenom} onChange={handleChange} required />
+          <input type="text" name="nom" placeholder="Nom" value={form.nom} onChange={handleChange} required />
+          <input type="text" name="classe" placeholder="Classe" value={form.classe} onChange={handleChange} required />
+          <input type="tel" name="numeroTelephone" placeholder="Téléphone" value={form.numeroTelephone} onChange={handleChange} required />
+          <input type="email" name="email" placeholder="Email (optionnel)" value={form.email} onChange={handleChange} />
+          <input type="tel" name="telParent" placeholder="Téléphone Parent" value={form.telParent} onChange={handleChange} required />
+          
+          <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+            <button type="submit">Ajouter</button>
+            <button type="button" onClick={onClose} style={{ backgroundColor: '#ccc', color: '#333' }}>Annuler</button>
+          </div>
+        </form>
+      </div>
+    </>
+  );
+}
+
+export default StudentFormDrawer;
