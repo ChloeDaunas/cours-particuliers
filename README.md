@@ -1,4 +1,3 @@
-Voici un README.md complet et professionnel pour ton projet. Il permettra à n'importe qui (ou à toi-même dans quelques mois) de comprendre comment installer et lancer l'application.
 🎓 Gestionnaire de Cours Particuliers
 
 Une application web full-stack pour gérer le suivi des élèves, les horaires de cours et calculer automatiquement le chiffre d'affaires.
